@@ -18,6 +18,7 @@ obj/
 .vs/
 *.userprefs
 *.DS_Store
+appsettings.json
 appsettings.Development.json
 appsettings.Local.json
 
