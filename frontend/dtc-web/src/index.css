@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  /* Bảng màu chuẩn Phần mềm Quốc gia / Bộ Kế hoạch và Đầu tư */
+  --primary: #0056b3; /* Xanh quốc gia */
+  --primary-hover: #004494;
+  --secondary: #28a745;
+  --danger: #dc3545;
+  
+  --bg-color: #f4f6f9; /* Xám nhạt đặc trưng của layout admin truyền thống */
+  --surface-color: #ffffff;
+  
+  --text-main: #212529; /* Đen nhạt dễ đọc */
+  --text-muted: #6c757d;
+  
+  --border-color: #dee2e6; /* Màu viền tiêu chuẩn */
+  
+  /* Typography */
+  --font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  font-size: 14px; /* Chuẩn hệ thống quản lý số liệu, font chữ vừa phải để hiển thị nhiều data */
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   Card Styling (Chỉnh chu, vuông vức, trang trọng)
+   ========================================== */
+.k-card {
+  background-color: var(--surface-color) !important;
+  border-radius: 4px !important; /* Bo góc cực nhẹ */
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important; /* Đổ bóng phẳng, không hiệu ứng bay lượn */
+}
+
+/* ==========================================
+   Kendo Grid - Phong cách số liệu Quốc gia
+   ========================================== */
+.k-grid {
+  border-radius: 0 !important; /* Bảng vuông vức */
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  font-family: var(--font-family) !important;
+}
+
+/* Header của Grid: Đậm, rõ ràng, phân cách mạnh */
+.k-grid-header {
+  background-color: #e9ecef !important; /* Xám Header chuẩn */
+  border-bottom: 2px solid var(--primary) !important; /* Nhấn viền xanh để phân biệt Header và Data */
+}
+
+.k-grid-header th {
+  color: #495057 !important;
+  font-weight: 700 !important;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 10px 12px !important;
+  border-right: 1px solid #ced4da !important; /* Hiện rõ lưới dọc */
+  vertical-align: middle;
+}
+
+.k-grid-header th:last-child {
+  border-right: none !important;
+}
+
+/* Dòng dữ liệu: Gọn gàng, hiển thị mật độ cao */
+.k-grid tbody tr {
+  background-color: #ffffff;
+}
+
+.k-grid tbody tr.k-alt {
+  background-color: #f8f9fa !important; /* Dòng chẵn lẻ phân biệt rõ ràng */
+}
+
+.k-grid tbody tr:hover {
+  background-color: #e2eef9 !important; /* Hover xanh nhạt cực kỳ chuẩn mực */
+}
+
+.k-grid tbody td {
+  padding: 8px 12px !important; /* Padding nhỏ lại để chứa nhiều số liệu */
+  border-bottom: 1px solid var(--border-color) !important;
+  border-right: 1px solid var(--border-color) !important; /* Lưới hiển thị rõ ô số liệu */
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.k-grid tbody td:last-child {
+  border-right: none !important;
+}
+
+/* Phân trang (Pager) */
+.k-pager-wrap {
+  background-color: #f8f9fa !important;
+  border-top: 1px solid var(--border-color) !important;
+  padding: 6px 12px !important;
+  font-size: 13px;
+}
+
+.k-pager-numbers .k-button {
+  border-radius: 3px !important;
+  margin: 0 1px !important;
+  color: var(--primary) !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+}
+
+.k-pager-numbers .k-button.k-selected {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* ==========================================
+   Status Badges (Nghiêm túc, không màu mè)
+   ========================================== */
+.badge-active {
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge-active::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.badge-inactive {
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge-inactive::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--danger);
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+/* ==========================================
+   Horizontal Top Menu (Quản lý Nhà nước)
+   ========================================== */
+/* Container của Menu */
+.k-menu:not(.k-context-menu) {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* Các mục (Item) trên thanh menu ngang */
+.k-menu-horizontal > .k-item > .k-link {
+  color: white !important;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 12px 16px !important;
+  border-radius: 0 !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Khi rê chuột vào Menu cha */
+.k-menu-horizontal > .k-item:hover > .k-link,
+.k-menu-horizontal > .k-item.k-focus > .k-link,
+.k-menu-horizontal > .k-item.k-selected > .k-link {
+  background-color: var(--primary-hover) !important;
+  color: white !important;
+}
+
+/* Popup Dropdown (Menu con thả xuống) */
+.k-menu-group {
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+  padding: 0 !important;
+}
+
+/* Các mục bên trong Menu con */
+.k-menu-group .k-item > .k-link {
+  color: var(--text-main) !important;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 16px !important;
+  text-transform: none;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.k-menu-group .k-item:last-child > .k-link {
+  border-bottom: none;
+}
+
+/* Khi rê chuột vào Menu con */
+.k-menu-group .k-item:hover > .k-link,
+.k-menu-group .k-item.k-focus > .k-link {
+  background-color: #e2eef9 !important; /* Màu xanh nhạt chuẩn */
+  color: var(--primary) !important;
+}
+
